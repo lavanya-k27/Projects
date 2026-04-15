@@ -1,22 +1,20 @@
+import { useState } from "react";
 import Header from "./Components/Header";
 import ImageGrid from "./Components/ImageGrid";
-import axios from "axios";
-import { images } from "./imageList";
 import "./App.css";
 
 function App() {
-  const generateImage = async () => {
-    let response = await axios.get("https://picsum.photos/200");
-    let image = response.data;
-    images.push({ id: 3, image: image });
-  };
+  const [images, setImages] = useState([]);
 
-  console.log(images);
+  const generateImage = () => {
+    const imageUrl = "https://picsum.photos/200?" + Math.random();
+    setImages([...images, imageUrl]);
+  };
 
   return (
     <>
-      <Header onClick={generateImage} images={images} />
-      <ImageGrid />
+      <Header onClick={generateImage} />
+      <ImageGrid images={images} />
     </>
   );
 }
