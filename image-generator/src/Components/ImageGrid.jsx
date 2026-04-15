@@ -3,11 +3,11 @@ import "../Styles/ImageGrid.css";
 const ImageGrid = ({ images }) => {
   return (
     <>
-      <div>
-        {images.map((image) => {
+      <div className="image-container">
+        {images.map((image, index) => {
           return (
-            <div key={image.id}>
-              <img src={image.image} />
+            <div key={index}>
+              <img src={image} />
             </div>
           );
         })}
