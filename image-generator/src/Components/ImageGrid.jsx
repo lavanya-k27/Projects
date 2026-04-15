@@ -1,13 +1,13 @@
 import "../Styles/ImageGrid.css";
 
-const ImageGrid = ({ images }) => {
+const ImageGrid = ({ images, handleDelete }) => {
   return (
     <>
       <div className="image-container">
-        {images.map((image, index) => {
+        {images.map((image) => {
           return (
-            <div key={index}>
-              <img src={image} />
+            <div key={image.id}>
+              <img src={image.image} onClick={() => handleDelete(image.id)} />
             </div>
           );
         })}
