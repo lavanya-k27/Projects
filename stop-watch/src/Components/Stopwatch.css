@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.indi {
+  font-size: 40px;
+}
+
+.button {
+  background-color: rgba(80, 74, 74, 0.781);
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+  height: 40px;
+  margin: 3px;
+  padding: 5px;
+}
