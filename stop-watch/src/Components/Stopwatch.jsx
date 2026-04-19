@@ -39,8 +39,8 @@ const Stopwatch = () => {
         <span className="indi">{formatTime(seconds)}</span>
       </div>
 
-      <button className="button" onClick={() => setIsRunning(true)}>
-        Start
+      <button className="button" onClick={() => setIsRunning(!isRunning)}>
+        {isRunning ? "Pause" : "Start"}
       </button>
       <button className="button" onClick={() => setIsRunning(false)}>
         Stop
