@@ -36,34 +36,53 @@ function App() {
     } catch (error) {
       setError("An Error Occurred");
     }
+
+    setCity("");
   };
 
   return (
     <div className="app-container">
+      <h1>Weather App</h1>
+
       <div>
-        <h1>Weather App</h1>
-      </div>
-      <div>
-        <input placeholder="Enter city" onChange={handleChange} value={city} />
-        <button onClick={fetchWeather}>search</button>
-        <div>{error && <p>{error}</p>}</div>
-        {weather && (
-          <div>
-            <h2>
-              {weather.name}, {weather.sys.country}
-            </h2>
-            <FaTemperatureThreeQuarters />
-            <p>{weather.main.temp}</p>
-            <p>{weather.main.feels_like}</p>
-            <WiHumidity />
-            <p>{weather.main.humidity}</p>
-            <p>{weather.main.pressure}</p>
-            <p>{weather.weather.main}</p>
-            <p>{weather.weather.description}</p>
-            <TiWeatherWindy />
-            <p>{weather.wind.speed}</p>
-          </div>
-        )}
+        <input
+          className="input"
+          placeholder="Enter city"
+          onChange={handleChange}
+          value={city}
+        />
+        <button className="button" onClick={fetchWeather}>
+          search
+        </button>
+        <div className="weather-container">
+          <div>{error && <p>{error}</p>}</div>
+          {weather && (
+            <div>
+              <h2>
+                {weather.name}, {weather.sys.country}
+              </h2>
+              <div className="temp">
+                <FaTemperatureThreeQuarters />
+                <p>{weather.main.temp}</p>
+                feels like : <p>{weather.main.feels_like}</p>
+              </div>
+              <div className="humid">
+                <WiHumidity />
+                <p>{weather.main.humidity}</p>
+              </div>
+              <div className="pressure">
+                <p>{weather.main.pressure}</p>
+                <p>{weather.weather[0].main}</p>
+                <p>{weather.weather[0].description}</p>
+              </div>
+
+              <div className="wind">
+                <TiWeatherWindy />
+                <p>{weather.wind.speed}</p>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
