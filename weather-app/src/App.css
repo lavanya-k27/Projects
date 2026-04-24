@@ -40,6 +40,12 @@
 
 p {
   margin: 3px;
+  color: rgb(24, 15, 148);
+}
+
+span {
+  font-size: 20px;
+  color: black
 }
 
 .temp,
@@ -49,4 +55,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid #6495ED;
+  padding: 10px;
+  border-radius: 5px;
 }

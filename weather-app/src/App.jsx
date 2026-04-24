@@ -63,17 +63,25 @@ function App() {
               </h2>
               <div className="temp">
                 <FaTemperatureThreeQuarters />
-                <p>{weather.main.temp}</p>
-                feels like : <p>{weather.main.feels_like}</p>
+                <p>{weather.main.temp},</p>
+                <p>
+                  <span>feels like</span> :{weather.main.feels_like}
+                </p>
               </div>
               <div className="humid">
                 <WiHumidity />
                 <p>{weather.main.humidity}</p>
               </div>
               <div className="pressure">
-                <p>{weather.main.pressure}</p>
-                <p>{weather.weather[0].main}</p>
-                <p>{weather.weather[0].description}</p>
+                <p>
+                  <span>pressure </span>: {weather.main.pressure}
+                </p>
+                <p>
+                  <span>weather</span>: {weather.weather[0].main}
+                </p>
+                <p>
+                  <span>description</span>: {weather.weather[0].description}
+                </p>
               </div>
 
               <div className="wind">
