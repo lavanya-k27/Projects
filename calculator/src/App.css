@@ -1,0 +1,65 @@
+/* ── Layout ── */
+.calculator-wrapper {
+  width: 240px;
+  margin: 2rem auto;
+  font-family: sans-serif;
+}
+
+/* ── Display ── */
+.calculator-display {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 1rem;
+  text-align: right;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 32px;
+  min-height: 60px;
+  word-break: break-all;
+}
+
+/* ── Button grid ── */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+/* ── Base button ── */
+.calc-btn {
+  padding: 18px 0;
+  font-size: 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity 0.1s;
+}
+
+.calc-btn:active {
+  opacity: 0.75;
+  transform: scale(0.96);
+}
+
+/* ── Colour variants ── */
+.calc-btn--dark {
+  background: #333;
+  color: #fff;
+}
+
+.calc-btn--gray {
+  background: #a5a5a5;
+  color: #000;
+}
+
+.calc-btn--orange {
+  background: #f4a228;
+  color: #fff;
+}
+
+/* ── Wide (zero) button ── */
+.calc-btn--wide {
+  grid-column: span 2;
+  text-align: left;
+  padding-left: 24px;
+}
