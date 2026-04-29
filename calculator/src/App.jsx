@@ -80,7 +80,6 @@ export default function Calculator() {
     <div className="calculator-wrapper">
       <div className="calculator-display">{display}</div>
 
-      {/* Button grid */}
       <div className="button-grid">
         <Button label="AC" onClick={handleClear} color="gray" />
         <Button
