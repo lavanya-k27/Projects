@@ -1,30 +1,45 @@
 import { useState } from "react";
+import "./App.css";
+
+function Button({ label, onClick, color = "dark", wide = false }) {
+  const colorClass = {
+    dark: "calc-btn--dark",
+    gray: "calc-btn--gray",
+    orange: "calc-btn--orange",
+  }[color];
+
+  return (
+    <button
+      onClick={onClick}
+      className={`calc-btn ${colorClass}${wide ? " calc-btn--wide" : ""}`}
+    >
+      {label}
+    </button>
+  );
+}
 
 export default function Calculator() {
   const [display, setDisplay] = useState("0");
   const [stored, setStored] = useState(null);
   const [operator, setOperator] = useState(null);
-  const [justCalculated, setJustCalculated] = useState(false);
+  const [justCalculated, setJustCalc] = useState(false);
 
-  // STEP 2: Handle digit presses (0–9 and .)
   function handleDigit(digit) {
     if (justCalculated) {
       setDisplay(digit);
-      setJustCalculated(false);
+      setJustCalc(false);
     } else {
       setDisplay((prev) => (prev === "0" ? digit : prev + digit));
     }
   }
 
-  // STEP 3: Handle operator presses (+, −, ×, ÷)
   function handleOperator(op) {
     setStored(parseFloat(display));
     setOperator(op);
     setDisplay("0");
-    setJustCalculated(false);
+    setJustCalc(false);
   }
 
-  // STEP 4: Handle equals — compute the result
   function handleEquals() {
     if (operator === null || stored === null) return;
     const a = stored;
@@ -51,42 +66,22 @@ export default function Calculator() {
     setDisplay(String(parseFloat(result.toFixed(10))));
     setStored(null);
     setOperator(null);
-    setJustCalculated(true);
+    setJustCalc(true);
   }
 
-  // STEP 5: Clear everything
   function handleClear() {
     setDisplay("0");
     setStored(null);
     setOperator(null);
-    setJustCalculated(false);
+    setJustCalc(false);
   }
 
-  // STEP 6: JSX — what gets shown on screen
   return (
-    <div style={{ width: 240, margin: "2rem auto", fontFamily: "sans-serif" }}>
-      {/* Display */}
-      <div
-        style={{
-          background: "#1a1a1a",
-          color: "#fff",
-          padding: "1rem",
-          textAlign: "right",
-          borderRadius: 8,
-          marginBottom: 8,
-        }}
-      >
-        <div style={{ fontSize: 32 }}>{display}</div>
-      </div>
+    <div className="calculator-wrapper">
+      <div className="calculator-display">{display}</div>
 
       {/* Button grid */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: 6,
-        }}
-      >
+      <div className="button-grid">
         <Button label="AC" onClick={handleClear} color="gray" />
         <Button
           label="+/-"
@@ -120,32 +115,5 @@ export default function Calculator() {
         <Button label="=" onClick={handleEquals} color="orange" />
       </div>
     </div>
-  );
-}
-
-// Reusable Button component
-function Button({ label, onClick, color = "dark", wide = false }) {
-  const colors = {
-    dark: { background: "#333", color: "#fff" },
-    gray: { background: "#a5a5a5", color: "#000" },
-    orange: { background: "#f4a228", color: "#fff" },
-  };
-  return (
-    <button
-      onClick={onClick}
-      style={{
-        ...colors[color],
-        gridColumn: wide ? "span 2" : "span 1",
-        padding: "18px 0",
-        fontSize: 20,
-        border: "none",
-        borderRadius: 50,
-        cursor: "pointer",
-        textAlign: wide ? "left" : "center",
-        paddingLeft: wide ? 24 : 0,
-      }}
-    >
-      {label}
-    </button>
   );
 }
