@@ -1,0 +1,18 @@
+.calculator-wrapper {
+  width: 240px;
+  margin: 2rem auto;
+  font-family: sans-serif;
+}
+
+
+.calculator-display {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 1rem;
+  text-align: right;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 32px;
+  min-height: 60px;
+  word-break: break-all;
+}
