@@ -1,0 +1,63 @@
+export const quotes = [
+  {
+    title: "motivate",
+    quotes: [
+      "The only way to do great work is to love what you do. By Steve Jobs",
+      "It does not matter how slowly you go as long as you do not stop.By Confucius",
+      "Success is not final, failure is not fatal: it is the courage to continue that counts. By Winston Churchill",
+      "Believe you can and you're halfway there. By Theodore Roosevelt",
+      "Don't watch the clock; do what it does. Keep going. By Sam Levenson",
+    ],
+  },
+  {
+    title: "life",
+    quotes: [
+      `"In the end, it's not the years in your life that count.
+       It's the life in your years." – Abraham Lincoln`,
+      `"Life is what happens when you're busy making other plans." – John Lennon`,
+      `"The purpose of life is not to be happy. It is to be useful." – Ralph Waldo Emerson`,
+      `"You only live once, but if you do it right, once is enough." – Mae West`,
+      `"Life is short, and it is up to you to make it sweet." – Sarah Louise Delany`,
+    ],
+  },
+  {
+    title: "relation",
+    quotes: [
+      `"The best thing to hold onto in life is each other." – Audrey Hepburn`,
+      `"A real friend is one who walks in when the rest of the world walks out." – Walter Winchell`,
+      `"Family is not an important thing, it's everything." – Michael J. Fox`,
+      `"Love is composed of a single soul inhabiting two bodies." – Aristotle`,
+      `"Forgiveness is not an occasional act; it is a constant attitude." – Martin Luther King Jr.`,
+    ],
+  },
+  {
+    title: "work",
+    quotes: [
+      `"Leadership is not about being in charge. It is about taking care of those in your charge." – Simon Sinek`,
+      `"Innovation distinguishes between a leader and a follower." – Steve Jobs`,
+      `"Coming together is a beginning, staying together is progress, and working together is success." – Henry Ford`,
+      `"The secret of getting ahead is getting started." – Mark Twain`,
+      `"Creativity is intelligence having fun." – Albert Einstein`,
+    ],
+  },
+  {
+    title: "mind",
+    quotes: [
+      `"Happiness is not something ready-made. It comes from your own actions." – Dalai Lama`,
+      `"You don't have to be positive all the time. It's perfectly okay to feel sad, angry, annoyed, or anxious." – Lori Deschene`,
+      `"Courage is not the absence of fear, but the triumph over it." – Nelson Mandela`,
+      `"Self-love is not selfish; you cannot truly love another until you know how to love yourself." – Unknown`,
+      `"Healing takes courage, and we all have courage, even if we have to dig a little to find it." – Tori Amos`,
+    ],
+  },
+  {
+    title: "famous",
+    quotes: [
+      `"Imagination is more important than knowledge." – Albert Einstein`,
+      `"The world is a book, and those who do not travel read only one page." – Saint Augustine`,
+      `"To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment." – Ralph Waldo Emerson`,
+      `"It always seems impossible until it's done." – Nelson Mandela`,
+      `"We know what we are, but know not what we may be." – William Shakespeare`,
+    ],
+  },
+];
