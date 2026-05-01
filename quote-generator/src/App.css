@@ -1,0 +1,17 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 300px;
+  background-color: #E9967A;
+  border-radius: 10px;
+
+  align-items: center;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}

@@ -1,0 +1,12 @@
+.container {
+  background-color: #FFF5EE;
+  width: 370px;
+  height: 120px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.quote {
+  color: #800000;
+  font-size: 20px;
+}
