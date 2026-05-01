@@ -1,6 +1,8 @@
-const SelectBox = ({ handleChange }) => {
+import "./SelectBox.css";
+
+const SelectBox = ({ handleChange, generateQuote }) => {
   return (
-    <>
+    <div className="header">
       <div>
         <select name="categories" id="category" onChange={handleChange}>
           <option value="">-- Choose a category --</option>
@@ -12,7 +14,10 @@ const SelectBox = ({ handleChange }) => {
           <option value="famous">Famous Figures</option>
         </select>
       </div>
-    </>
+      <div>
+        <button onClick={generateQuote}>Generate</button>
+      </div>
+    </div>
   );
 };
 
