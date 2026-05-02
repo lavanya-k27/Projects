@@ -1,20 +1,55 @@
 import { useState } from "react";
 import SelectBox from "./components/SelectBox";
 import Quotes from "./components/Quotes";
-import { quotes } from "./data";
 import "./App.css";
 
 function App() {
   const [selectedValue, setSelectedValue] = useState(null);
   const [quote, setQuote] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [liked, setLiked] = useState(false);
 
-  const generateQuote = () => {
-    const matched = quotes.find((quote) => quote.title === selectedValue);
+  const handleLike = async () => {
+    if (!quote) return;
 
-    if (matched) {
-      const randomIndex = Math.floor(Math.random() * matched.quotes.length);
-      setQuote(matched.quotes[randomIndex]);
-    }
+    const newLiked = !liked;
+    setLiked(newLiked);
+
+    await fetch(`http://localhost:3001/quotes/${quote.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ liked: newLiked }),
+    });
+  };
+
+  const handleDislike = async () => {
+    if (!quote) return;
+
+    const newUnlike = !liked;
+    setLiked(newUnlike);
+
+    await fetch(`http://localhost:3001/quotes/${quote.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ liked: newUnlike }),
+    });
+  };
+
+  const generateQuote = async () => {
+    setIsLoading(true);
+
+    const response = await fetch(
+      `http://localhost:3001/quotes?category=${selectedValue}`,
+    );
+    const data = await response.json();
+
+    const randomIndex = Math.floor(Math.random() * data.length);
+    const newQuote = data[randomIndex];
+
+    setQuote(newQuote);
+    setLiked(newQuote.liked);
+
+    setIsLoading(false);
   };
 
   const handleChange = (e) => {
@@ -24,8 +59,19 @@ function App() {
   return (
     <div className="app-container">
       <h1>Quote Generator</h1>
-      <SelectBox handleChange={handleChange} generateQuote={generateQuote} />
-      <Quotes selectedValue={selectedValue} quote={quote} />
+      <SelectBox
+        handleChange={handleChange}
+        generateQuote={generateQuote}
+        isLoading={isLoading}
+      />
+      <Quotes
+        selectedValue={selectedValue}
+        quote={quote}
+        isLoading={isLoading}
+        handleDislike={handleDislike}
+        handleLike={handleLike}
+        liked={liked}
+      />
     </div>
   );
 }
