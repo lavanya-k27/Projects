@@ -1,6 +1,6 @@
 import "./SelectBox.css";
 
-const SelectBox = ({ handleChange, generateQuote }) => {
+const SelectBox = ({ handleChange, generateQuote, isLoading }) => {
   return (
     <div className="header">
       <div>
@@ -15,7 +15,13 @@ const SelectBox = ({ handleChange, generateQuote }) => {
         </select>
       </div>
       <div>
-        <button onClick={generateQuote}>Generate</button>
+        <button
+          onClick={generateQuote}
+          disabled={isLoading}
+          className={isLoading ? "btn disabled" : "btn"}
+        >
+          {isLoading ? "Generate Quote" : "Generate Quote"}
+        </button>
       </div>
     </div>
   );
